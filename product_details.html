@@ -50,6 +50,23 @@
       object-fit: cover;
       border-radius: 0 0 20px 20px;
     }
+    .dots {
+        text-align: center;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 8px;
+        width: 8px;
+        margin: 0 2px;
+        background-color: var(--very-light-pink);
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .dotsspan:nth-child(1) {
+        background-color: var(--hospital-green);
+    }
     .product-info {
       margin: 24px 24px 0 24px;
     }
@@ -100,6 +117,11 @@
       <img src="./icons/icon_close.png" alt="close">
     </div>
     <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+    <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
     <div class="product-info">
       <p>$35,00</p>
       <p>Bike</p>
