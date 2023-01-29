@@ -12,6 +12,7 @@ burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarIcon.addEventListener('click', toggleCarAside);
 
 function toggleDesktopMenu() {
+    const isAsideClosed = aside.classList.contains('inactive'); 
     if (!isAsideClosed) { //si el .product-detail esta abierto 
         aside.classList.add('inactive'); //cerrar .product-detail
     }
@@ -29,7 +30,7 @@ function toggleMobileMenu() {
 
 function toggleCarAside() {
     //aqui estamos asignando la const isMobileClosed cuando nuestro mobileMenu contiene la clase 'inactive' es decir cuando esta cerrado el .mobile-menu
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
+    const isMobileMenuClosed =      mobileMenu.classList.contains('inactive'); 
 
     //aqui estamos asignando la const isAsideClosed cuando nuestro aside contiene la clase 'inactive' es decir cuando esta cerrado el .product-detail
     //const isAsideClosed = aside.classList.contains('inactive');
