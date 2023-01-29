@@ -12,13 +12,34 @@ burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarIcon.addEventListener('click', toggleCarAside);
 
 function toggleDesktopMenu() {
+    if (!isAsideClosed) { //si el .product-detail esta abierto 
+        aside.classList.add('inactive'); //cerrar .product-detail
+    }
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    mobileMenu.classList.toggle('inactive');
+    const isAsideClosed = aside.classList.contains('inactive'); 
+
+    if (!isAsideClosed) { //si el .product-detail esta abierto 
+        aside.classList.add('inactive'); //cerrar .product-detail
+    }
+    mobileMenu.classList.toggle('inactive'); //ponerle/quitarle la clase inactive a .mobile-menu
 }
 
 function toggleCarAside() {
-    mobileMenu.classList.toggle('inactive');
+    //aqui estamos asignando la const isMobileClosed cuando nuestro mobileMenu contiene la clase 'inactive' es decir cuando esta cerrado el .mobile-menu
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
+
+    //aqui estamos asignando la const isAsideClosed cuando nuestro aside contiene la clase 'inactive' es decir cuando esta cerrado el .product-detail
+    //const isAsideClosed = aside.classList.contains('inactive');
+
+
+    if (!isMobileMenuClosed) { //si el .mobile-menu esta abierto 
+        mobileMenu.classList.add('inactive'); //cerrar .mobile-menu
+    }
+
+    aside.classList.toggle('inactive'); //ponerle/quitarle la clase inactive a .product-detail
+
+    
 }
