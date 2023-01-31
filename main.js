@@ -2,7 +2,9 @@ const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const ProductDetailContainer = document.querySelector('#productDetail');
 
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -12,6 +14,7 @@ const cardsContainer = document.querySelector('.cards-container');
 navEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarIcon.addEventListener('click', toggleCarAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); 
@@ -27,12 +30,13 @@ function toggleMobileMenu() {
     if (!isAsideClosed) { //si el .product-detail esta abierto 
         shoppingCartContainer.classList.add('inactive'); //cerrar .product-detail
     }
+    closeProductDetailAside();
     mobileMenu.classList.toggle('inactive'); //ponerle/quitarle la clase inactive a .mobile-menu
 }
 
 function toggleCarAside() {
-    //aqui estamos asignando la const isMobileClosed cuando nuestro mobileMenu contiene la clase 'inactive' es decir cuando esta cerrado el .mobile-menu
-    const isMobileMenuClosed =      mobileMenu.classList.contains('inactive'); 
+    
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
 
     //aqui estamos asignando la const isAsideClosed cuando nuestro aside contiene la clase 'inactive' es decir cuando esta cerrado el .product-detail
     //const isAsideClosed = aside.classList.contains('inactive');
@@ -42,9 +46,22 @@ function toggleCarAside() {
         mobileMenu.classList.add('inactive'); //cerrar .mobile-menu
     }
 
-    shoppingCartContainer.classList.toggle('inactive'); //ponerle/quitarle la clase inactive a .product-detail
+    shoppingCartContainer.classList.toggle('inactive'); //ponerle/quitarle la clase inactive a #shoppingCartContainer
+//--------------------------------------------------------------------------------------------------------------------------------
+    const isProductDetailClosed = ProductDetailContainer.classList.contains('inactive'); 
 
-    
+    if (!isProductDetailClosed) { //si el .#product-detail esta abierto 
+        ProductDetailContainer.classList.add('inactive'); //cerrar .#product-detail
+    }
+
+}
+
+function openProductDetailAside(){
+    shoppingCartContainer.classList.add('inactive');
+    ProductDetailContainer.classList.remove('inactive');
+}
+function closeProductDetailAside(){
+    ProductDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -111,9 +128,11 @@ function renderProducts(arr) {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
     
+        // product = {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
-    
+        productImg.addEventListener('click', openProductDetailAside);
+
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
     
