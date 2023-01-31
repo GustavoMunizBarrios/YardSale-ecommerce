@@ -2,7 +2,7 @@ const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 const burguerMenu = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -14,18 +14,18 @@ burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarIcon.addEventListener('click', toggleCarAside);
 
 function toggleDesktopMenu() {
-    const isAsideClosed = aside.classList.contains('inactive'); 
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); 
     if (!isAsideClosed) { //si el .product-detail esta abierto 
-        aside.classList.add('inactive'); //cerrar .product-detail
+        shoppingCartContainer.classList.add('inactive'); //cerrar .product-detail
     }
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    const isAsideClosed = aside.classList.contains('inactive'); 
+    const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); 
 
     if (!isAsideClosed) { //si el .product-detail esta abierto 
-        aside.classList.add('inactive'); //cerrar .product-detail
+        shoppingCartContainer.classList.add('inactive'); //cerrar .product-detail
     }
     mobileMenu.classList.toggle('inactive'); //ponerle/quitarle la clase inactive a .mobile-menu
 }
@@ -42,7 +42,7 @@ function toggleCarAside() {
         mobileMenu.classList.add('inactive'); //cerrar .mobile-menu
     }
 
-    aside.classList.toggle('inactive'); //ponerle/quitarle la clase inactive a .product-detail
+    shoppingCartContainer.classList.toggle('inactive'); //ponerle/quitarle la clase inactive a .product-detail
 
     
 }
