@@ -1,9 +1,12 @@
+//const { construct } = require("core-js/fn/reflect");
+
 const navEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 
 const menuCarIcon = document.querySelector('.navbar-shopping-cart');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const mainContainer = document.querySelector('.main-container');
 const ProductDetailContainer = document.querySelector('#productDetail');
 
 const burguerMenu = document.querySelector('.menu');
@@ -15,6 +18,7 @@ navEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarIcon.addEventListener('click', toggleCarAside);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+//shoppingCartContainer.addEventListener('click', toggleShoppingCart);
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); 
@@ -22,7 +26,10 @@ function toggleDesktopMenu() {
         shoppingCartContainer.classList.add('inactive'); //cerrar .product-detail
     }
     desktopMenu.classList.toggle('inactive');
+    mainContainer.classList.toggle('blur');
+
 }
+
 
 function toggleMobileMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); 
@@ -35,12 +42,12 @@ function toggleMobileMenu() {
 }
 
 function toggleCarAside() {
+    //mainContainer.classList.add('blur');
     
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive'); 
 
     //aqui estamos asignando la const isAsideClosed cuando nuestro aside contiene la clase 'inactive' es decir cuando esta cerrado el .product-detail
     //const isAsideClosed = aside.classList.contains('inactive');
-
 
     if (!isMobileMenuClosed) { //si el .mobile-menu esta abierto 
         mobileMenu.classList.add('inactive'); //cerrar .mobile-menu
@@ -53,7 +60,19 @@ function toggleCarAside() {
     if (!isProductDetailClosed) { //si el .#product-detail esta abierto 
         ProductDetailContainer.classList.add('inactive'); //cerrar .#product-detail
     }
+//-----------------------------------------------------------------------------------------------------------------------
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
 
+    if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
+    }
+//---------------------------------------------------------------------------------------------------------------------
+    if (isMobileMenuClosed || isProductDetailClosed || isDesktopMenuClosed){
+        mainContainer.classList.remove('blur');
+    }
+    
+
+    
 }
 
 function openProductDetailAside(){

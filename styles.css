@@ -20,7 +20,11 @@ body {
 .inactive {
     display: none;
 }
-
+.blur {
+    filter: blur(2px);
+    /* filter: brightness(50%); */
+    /* background-color: rgba(0, 0, 0, 0.058); */
+}
 /***********************************************************************/
 /*********************** Navbar General ********************************/
 /***********************************************************************/
@@ -75,6 +79,7 @@ nav {
     border: 2px solid var(--hospital-green);
 }
 .navbar-shopping-cart {
+    cursor: pointer;
     position: relative;
 
 }
@@ -98,6 +103,7 @@ nav {
 /***********************************************************************/
 .desktop-menu{
     position: absolute;
+    z-index: 1;
     top: 60px;
     right: 60px;
     background: var(--white);
@@ -189,12 +195,16 @@ aside {
     width: 360px;
     box-sizing: border-box;
     position: absolute;
+    z-index: 1;
     right: 0;
   }
   
   /* ShoppingCart */
   #shoppingCartContainer {
     padding: 0 24px;
+    padding-bottom: 25px;
+    border: 1px solid var(--very-light-pink);    
+    border-radius: 6px;
   }
   .title-container {
     display: flex;
@@ -286,14 +296,8 @@ aside {
     height: 360px;
     object-fit: cover;
     border-radius: 0 0 20px 20px;
-    /*.aside styles*/
-/*     background-color: var(--white);
-    width: 360px;
-    box-sizing: border-box;
-    position: absolute;
-    right: 0; */
   }
-  .dots {
+ /*  .dots {
       text-align: center;
   }
 
@@ -309,7 +313,8 @@ aside {
 
   .dotsspan:nth-child(1) {
       background-color: var(--hospital-green);
-  }
+  } */
+
   #productDetail .product-info {
     margin: 24px 24px 0 24px;
   }
@@ -424,7 +429,9 @@ aside {
     .product-card img {
     width: 140px;
     height: 140px;
-
+    }
+    #productDetail {
+        width: 100%;
     }
 }
 
