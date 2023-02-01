@@ -22,10 +22,11 @@ productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 function toggleDesktopMenu() {
     const isAsideClosed = shoppingCartContainer.classList.contains('inactive'); 
-    if (!isAsideClosed) { //si el .product-detail esta abierto 
-        shoppingCartContainer.classList.add('inactive'); //cerrar .product-detail
+    if (!isAsideClosed) { //si el #shoppingCartContainer esta abierto 
+        shoppingCartContainer.classList.add('inactive'); //cerrar #shoppingCartContainer
     }
     desktopMenu.classList.toggle('inactive');
+    ProductDetailContainer.classList.add('inactive');
     mainContainer.classList.toggle('blur');
 
 }
@@ -77,6 +78,8 @@ function toggleCarAside() {
 
 function openProductDetailAside(){
     shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    mainContainer.classList.remove('blur');
     ProductDetailContainer.classList.remove('inactive');
 }
 function closeProductDetailAside(){
